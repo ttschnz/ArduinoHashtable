@@ -463,6 +463,7 @@ public:
      * @return The value associated with the key, or a default constructed object if key not found.
     */
     V getElement(const K& key) const {
+        int index = calculateIndex(key, TABLE_SIZE);
         Entry* entry = table[index];
         while (entry != nullptr) {
             if (entry->key == key) {
